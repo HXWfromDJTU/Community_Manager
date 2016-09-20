@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			document.getElementById("post").addEventListener('tap',function(){
+				plus.webview.open('circle_submit.html');
+			})
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft"></a>
+			<h1 class="mui-title">社交圈</h1>
+			<a id="post" class="mui-icon mui-icon-camera mui-pull-right"></a>
+		</header>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+
+			<div class="mui-circle-blogBox">
+				<div class="mui-circle-topBox">
+					<img class="mui-circle-topPic" src="img/circle/circleTopPic.jpg" />
+					<span class="mui-circle-topName">炫玮</span>
+					<img class="mui-circle-topCharacter" src="img/circle/circleCharacter.jpg" />
+				</div>
+				<!--第一条社交圈的开始-->
+				<div class="mui-circle-blog">
+					<div class="mui-circle-blogLeft">
+						<img class="mui-circle-blogCharchter" src="img/circle/circleCharacter.jpg" />
+					</div>
+					<div class="mui-circle-blogRight">
+						<div class="mui-circle-blogName">
+							炫玮
+						</div>
+						<div class="mui-circle-blogText">
+							这里是内容这里是内容这 里是内容这里是内 容这里是内 容这里是内容这里是内容这里是内容
+						</div>
+						<div class="mui-circle-blogImgBox">
+							<ul class="mui-table-view mui-grid-view mui-grid-9">
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 " id="mui-circle-blogImg">
+									<img src="img/user-logo.jpg">
+								</li>
+							</ul>
+						</div>
+						<div class="mui-circle-blogStatus">
+							<span class="mui-circle-blogTime">5小时前</span>
+							<a class="mui-icon iconfont icon-pinglun mui-pull-right" href="#mui-popover"></a>
+							<div class="mui-circle-blogZan">
+								<span class="mui-icon iconfont icon-zanyang"></span>
+								<span class="mui-circle-blogName">
+									大哥、大牛、金刚葫芦娃
+								</span>
+							</div>
+							<div class="mui-circle-blogComment">
+								<span class="mui-circle-blogName">炫玮：</span>
+								<span class="mui-circle-blogCommentText">评论内容评论内容评论内容评论内容评论内容</span>
+							</div>
+							<div class="mui-circle-blogComment">
+								<span class="mui-circle-blogName">卓爷：</span>
+								<span class="mui-circle-blogCommentText">评论内容评论内容评论内容评论内容评论内容</span>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<!--弹出的二级提示窗口-->
+		<div id="mui-popover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<a href="javascript:;"><span class="mui-icon iconfont icon-zanyang">
+                   赞
+		</span></a>
+			<a href="javascript:;"><span class="mui-icon iconfont icon-pinglun">
+                   评论
+		</span></a>
+		</div>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			 var circleData={"record":[{"name":"小龙女",
+			                            "character":"img/userCharacters/character (1).jpg",
+			                            "content":"烦恼，识趣的滚一边儿去哈！",
+			                            "pic1":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic2":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic3":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic4":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic5":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic6":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic7":"<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+			                            "pic8":"",
+			                            "pic9":"",
+			                            "posttime":"昨天",
+			                            "thumbup":["韦卓","周星驰","唐牛"],
+			                            "comment":["<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>",
+			                                       "<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>",
+			                                       "<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>"]
+			                          } ]
+			                 };
+              
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-circle-blogBox');
+					var cells = document.body.querySelectorAll('.mui-circle-blog');
+					for (var i = cells.length, len = i + 1; i < len; i++) {
+						var blog = document.createElement('div');
+					    var blogcomment=circleData.record[0].comment.join("");
+						blog.className = 'mui-circle-blog';
+						blog.innerHTML = "<div class='mui-circle-blogLeft'><img class='mui-circle-blogCharchter' src='img/userCharacters/character ("+i+").jpg' /></div><div class='mui-circle-blogRight'><div class='mui-circle-blogName'>"+circleData.record[0].name+"</div><div class='mui-circle-blogText'>"+circleData.record[0].content+"</div><div class='mui-circle-blogImgBox'><ul class='mui-table-view mui-grid-view mui-grid-9'>"+circleData.record[0].pic1+""+circleData.record[0].pic2+""+circleData.record[0].pic3+""+circleData.record[0].pic4+""+circleData.record[0].pic5+""+circleData.record[0].pic6+""+circleData.record[0].pic7+""+circleData.record[0].pic8+""+circleData.record[0].pic9+"</ul></div><div class='mui-circle-blogStatus'><span class='mui-circle-blogTime'>"+circleData.record[0].posttime+"</span><a class='mui-icon iconfont icon-pinglun mui-pull-right' href='#mui-popover'></a><div class='mui-circle-blogZan'><span class='mui-icon iconfont icon-zanyang'></span><span class='mui-circle-blogName'>"+circleData.record[0].thumbup+"</span></div>"+blogcomment+"</div></div>";
+						
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(blog, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现 
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-circle-blogBox');
+					var cells = document.body.querySelectorAll('.mui-circle-blog');
+					for (var i = cells.length, len = i + 1; i < len; i++) {
+						var blog = document.createElement('div');
+						var blogcomment=circleData.record[0].comment.join("");
+						blog.className = 'mui-table-view-cell mui-media';
+						blog.innerHTML = "<div class='mui-circle-blogLeft'><img class='mui-circle-blogCharchter' src='img/userCharacters/character ("+i+").jpg' /></div><div class='mui-circle-blogRight'><div class='mui-circle-blogName'>"+circleData.record[0].name+"</div><div class='mui-circle-blogText'>"+circleData.record[0].content+"</div><div class='mui-circle-blogImgBox'><ul class='mui-table-view mui-grid-view mui-grid-9'>"+circleData.record[0].pic1+""+circleData.record[0].pic2+""+circleData.record[0].pic3+""+circleData.record[0].pic4+""+circleData.record[0].pic5+""+circleData.record[0].pic6+""+circleData.record[0].pic7+""+circleData.record[0].pic8+""+circleData.record[0].pic9+"</ul></div><div class='mui-circle-blogStatus'><span class='mui-circle-blogTime'>"+circleData.record[0].posttime+"</span><a class='mui-icon iconfont icon-pinglun mui-pull-right' href='#mui-popover'></a><div class='mui-circle-blogZan'><span class='mui-icon iconfont icon-zanyang'></span><span class='mui-circle-blogName'>"+circleData.record[0].thumbup+"</span></div>"+blogcomment+"</div></div>";
+						table.appendChild(blog);
+					}
+				}, 1000);
+			}
+		</script>
+	</body>
+
+</html>

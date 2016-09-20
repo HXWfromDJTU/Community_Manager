@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/CM.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<style>
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 100%;
+			}
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: 100%;
+			}
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">社区论坛</h1>
+		</header>
+		<div class="mui-content mui-row mui-fullscreen">
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+				<div id="item1" class="mui-control-content mui-active">
+				</div>
+				<div id="item2" class="mui-control-content">
+				</div>
+				<div id="item3" class="mui-control-content">
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var html =  [];
+		    var detail= [
+		               ["小区第一次业主大会商议结果出炉","关于业委会主任关龙生同志离职的问题","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉","小区第一次业主大会商议结果出炉"],
+			           ["我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","","","","","","","","","","","","",""],
+			           ["广场舞缴费问题","广场舞音量扰民问题","恭喜小区“夕阳红”舞队荣获团体大奖","","","","","","","","","","","","","","","","","",""],
+			           ["我就是不服谁的象棋","我的手链丢失了","文件袋谁丢了在小区门口","我的手链丢失了","文件袋谁丢了在小区门口","","","","","","","","","","","","","","","","","",""],
+			           ["隔壁家老王夜归吵闹","三栋704门口垃圾堆积","七栋六零四正式出售","","","","","","","","","","","","","","","","","",""],
+			           ["今晚八点小区篮球场进行小区篮球赛","乒乓球技艺求切磋","","","","","","","","","","","","","","","","","","",""],
+			           ["小区周边打折扫货求组队","上次在门口买的雅诗兰黛有质量问题","","","","","","","","","","","","","","","","","","",""],
+			           ["十三栋楼下那辆凯迪拉克的车主麻烦联系一下我","小区拐角那两烂尾面包车是怎么回事？","","","","","","","","","","","","","","","","","","",""],
+			           ["七栋六零四正式出售，有意者私信","因为工作原因要搬走了，出租本房","七栋六零四正式出售","","","","","","","","","","","","","","","","","",""],
+			           ["六十年代的哪些事儿","回顾我们的革命年代","","","","","","","","","","","","","","","","","","",""],
+			           ["周六出发澳门摄影的进来看看","我的佳能304E不知道是不是真货？","","","","","","","","","","","","","","","","","","",""],
+			           ["大城市工作好累，感慨","大城市的第一套房子，我会继续努力的","","","","","","","","","","","","","","","","","","",""],
+			           ["又没有喜欢看碟中谍系列的？","小李子终于拿奥斯卡奖了","","","","","","","","","","","","","","","","","","",""],
+			           ["想给大家讲讲保健知识","每天上班的孩子们你们辛苦了","","","","","","","","","","","","","","","","","","",""],
+			           ["加油宝宝","宝宝去哪儿","","","","","","","","","","","","","","","","","","",""],
+			           ["加油宝宝","宝宝去哪儿","","","","","","","","","","","","","","","","","","",""]
+			           ];  
+            var topic=["社区事务","失物招领","广场舞","挑战赛","邻里矛盾","体育活动",
+                          "购物行街","汽车天地","房屋租售","陈年往事","摄影无界","情感天地","影视文化","老年天地","家有宝贝"]
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 16; //每个选项卡列表数量+1
+			for (; i < m; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">' + topic[i-1] + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 1; i < m; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+				for (j = 1; j < n; j++) {
+					html.push('<li class="mui-table-view-cell">'+ detail[i-1][j-1] + '</li>');
+				}
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+		</script>
+
+	</body>
+
+</html>

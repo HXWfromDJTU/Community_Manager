@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft"></a>社区事务
+			<a class="mui-icon mui-icon-bars mui-pull-right" href="#"></a>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-forum-postBottomBox">
+				<span id="forumPostBtn" onclick="showImgBox()" class="mui-icon iconfont icon-tupian mui-forum-postBottomImg">
+           	  	
+           	  </span>
+				<span class="mui-icon iconfont icon-biaoqing mui-forum-postBottomFace">
+           	  	
+           	  </span>
+				<input type="text" id="mui-forum-inputBottom" class="mui-forum-inputBottom" placeholder="我也要说一句">
+				<span onclick="forumPostSubmit()" class="mui-icon iconfont icon-fasong mui-forum-postBottomSend">
+           	  	
+           	  </span>
+			</div>
+			<div class="mui-forumPost-imgBox" id="mui-forumPost-imgBox">
+				<img id="addImgBtn" onclick="forumPostImgs()" class="mui-forumPost-imgPlus" src="img/plus.jpg" />
+				<hr id="hr">
+			</div>
+		</nav>
+		<div class="mui-content">
+
+			<div class="mui-circle-blogBox" id="mui-circle-blogBox">
+				<!--第一楼层的开始-->
+				<div class="mui-forum-postBox">
+					<div class="mui-forum-post">
+
+						<div class="mui-forum-postTopBox">
+							<div id="mui-circle-forumName-boxLeft">
+								<img class="mui-circle-blogCharchter" id="mui-circle-forumCharchter" src="img/circle/circleCharacter.jpg" />
+							</div>
+							<div id="mui-circle-forumName-boxRight">
+								<div class="mui-circle-forumName-boxRight-line1">
+									<span clss="mui-forum-username">炫玮</span>
+									<span class="mui-forum-userSex mui-icon iconfont icon-sex1"></span>
+									<span class="mui-forum-postRole mui-icon iconfont icon-louzhu"></span>
+								</div> 
+								<div class="mui-circle-forumName-boxRight-line2">
+									<span class="mui-forum-postStair">第1楼</span>
+									<span class="mui-forum-posttime">21小时前</span>
+								</div>
+							</div>
+						</div>
+						<div class="mui-forum-postText">
+							这里是社区论坛的帖子内部页面，用户可以在此处浏览帖子，通过下方的输入框跟帖
+						</div>
+						<div class="mui-forum-postImgBox">
+							<img class="mui-forum-postImg" src="img/circle/circleTopPic.jpg">
+							<img class="mui-forum-postImg" src="img/lunbo/ComSharePic/share3.jpg">
+						</div>
+
+					</div>
+                    <div class="mui-forum-bottomTip" id="mui-forum-bottomTip">
+                    	暂无更多帖子
+                    </div>
+				</div>
+			</div>
+
+		</div>
+		<!--弹出的二级提示窗口-->
+		<div id="mui-popover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<a href="javascript:;"><span class="mui-icon iconfont icon-zanyang">
+                   赞
+		</span></a>
+			<a href="javascript:;"><span class="mui-icon iconfont icon-pinglun">
+                   评论
+		</span></a>
+		</div>
+		<script>
+//			mui.init({
+//				swipeBack: false,
+//				pullRefresh: {
+//					container: '#pullrefresh',
+//					down: {
+//						callback: pulldownRefresh
+//					},
+//					up: {
+//						contentrefresh: '正在加载...',
+//						callback: pullupRefresh
+//					}
+//				}
+//			});
+//			/**
+//			 * 下拉刷新具体业务实现
+//			 */
+//			var circleData = {
+//				"record": [{
+//					"name": "小龙女",
+//					"character": "img/userCharacters/character (1).jpg",
+//					"content": "烦恼，识趣的滚一边儿去哈！",
+//					"pic1": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic2": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic3": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic4": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic5": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic6": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic7": "<li class='mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 ' id='mui-circle-blogImg'><img src='img/user-logo.jpg'></li>",
+//					"pic8": "",
+//					"pic9": "",
+//					"posttime": "昨天",
+//					"thumbup": ["韦卓", "周星驰", "唐牛"],
+//					"comment": ["<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>",
+//						"<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>",
+//						"<div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>内容</span></div>"
+//					]
+//				}]
+//			};
+//
+//			function pulldownRefresh() {
+//				//				setTimeout(function() {
+//				//					var table = document.body.querySelector('.mui-forum-postBox');
+//				//					var cells = document.body.querySelectorAll('.mui-forum-post');
+//				//					for (var i = cells.length, len = i + 1; i < len; i++) {
+//				//						var post = document.createElement('div');
+//				//						var postcomment = circleData.record[0].comment.join("");
+//				//						post.className = 'mui-forum-post';
+//				//						post.innerHTML = "<div class='mui-forum-postTopBox'><div id='mui-circle-forumName-boxLeft'><img class='mui-circle-blogCharchter' id='mui-circle-forumCharchter' src='img/circle/circleCharacter.jpg' /></div><div id='mui-circle-forumName-boxRight'><div class='mui-circle-forumName-boxRight-line1'><span clss='mui-forum-username'>炫玮</span><span class='mui-forum-userSex mui-icon iconfont icon-sex1'></span><span class='mui-forum-postRole mui-icon iconfont icon-louzhu'></span></div><div class='mui-circle-forumName-boxRight-line2'><span class='mui-forum-postStair'>第1楼</span><span class='mui-forum-posttime'>21小时前</span></div></div></div><div class='mui-forum-postText'>这里是内容这里是内容这 里是内容这里是内 容这里是内 容这里是内容这里是内容这里是内容</div><div class='mui-forum-postImgBox'><img class='mui-forum-postImg' src='img/circle/circleTopPic.jpg'><img class='mui-forum-postImg' src='img/lunbo/ComSharePic/share3.jpg'></div><div class='mui-circle-blogStatus'><div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>评论内容评论内容评论内容评论内容评论内容</span><span class='mui-forum-commenttime'>2小时前</span></div><div class='mui-circle-blogComment'><span class='mui-circle-blogName'>卓爷：</span><span class='mui-circle-blogCommentText'>评论内容评论内容评论内容评论内容评论内容</span><span class='mui-forum-commenttime'>2小时前</span></div></div>"
+//				//;
+//				//						//下拉刷新，新纪录插到最前面；
+//				//						table.insertBefore(post, table.firstChild);
+//				//					}
+//				//					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+//				//				}, 1000);
+//			}
+//			var count = 0;
+//			/**
+//			 * 上拉加载具体业务实现 
+//			 */
+//			function pullupRefresh() {
+//				mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+//				var table = document.body.querySelector('.mui-forum-postBox');
+//				var cells = document.body.querySelectorAll('.mui-forum-post');
+////				for (var i = cells.length, len = i + 3; i < len; i++) {
+////					var post = document.createElement('div');
+////					var blogcomment = circleData.record[0].comment.join("");
+////					post.className = 'mui-forum-post';
+////					post.innerHTML = "<div class='mui-forum-postTopBox'><div id='mui-circle-forumName-boxLeft'><img class='mui-circle-blogCharchter' id='mui-circle-forumCharchter' src='img/circle/circleCharacter.jpg' /></div><div id='mui-circle-forumName-boxRight'><div class='mui-circle-forumName-boxRight-line1'><span clss='mui-forum-username'>炫玮</span><span class='mui-forum-userSex mui-icon iconfont icon-sex1'></span><span class='mui-forum-postRole mui-icon iconfont icon-louzhu'></span></div><div class='mui-circle-forumName-boxRight-line2'><span class='mui-forum-postStair'>第1楼</span><span class='mui-forum-posttime'>21小时前</span></div></div></div><div class='mui-forum-postText'>这里是内容这里是内容这 里是内容这里是内 容这里是内 容这里是内容这里是内容这里是内容</div><div class='mui-forum-postImgBox'><img class='mui-forum-postImg' src='img/circle/circleTopPic.jpg'><img class='mui-forum-postImg' src='img/lunbo/ComSharePic/share3.jpg'></div><div class='mui-circle-blogStatus'><div class='mui-circle-blogComment'><span class='mui-circle-blogName'>炫玮：</span><span class='mui-circle-blogCommentText'>评论内容评论内容评论内容评论内容评论内容</span><span class='mui-forum-commenttime'>2小时前</span></div><div class='mui-circle-blogComment'><span class='mui-circle-blogName'>卓爷：</span><span class='mui-circle-blogCommentText'>评论内容评论内容评论内容评论内容评论内容</span><span class='mui-forum-commenttime'>2小时前</span></div></div>";
+////					table.appendChild(post);
+////				}
+//			}
+			//提交回帖建楼层的方法
+			var floor=1;
+			var myDate =new Date();
+			function forumPostSubmit() {
+				// 获取两个帖子内容的大容器
+				var table = document.body.querySelector('.mui-forum-postBox');
+				var bottomTip=document.getElementById("mui-forum-bottomTip");
+				
+				//获取提交的内容	
+				var userLogo = "img/userCharacters/character (7).jpg";
+				var userName = "kaka";
+				var userSex = "sex1";
+				var userPostRole = "";
+				floor+=1;
+				var hour=myDate.getHours();
+				var minute=myDate.getMinutes()+1;
+				var postTime = hour+":"+minute;
+				var postContent = document.getElementById("mui-forum-inputBottom").value;
+				var allImg=document.querySelectorAll(".mui-circleSubmit-img");
+				var postImg="";
+				for(var i=0;i<allImg.length;i++){ 
+					postImg=postImg+"<img class='mui-forum-postImg' src='"+allImg[i].src+"'>";
+				}
+				if(postContent==""&&allImg.length!=0){postContent="分享图片";}
+				if(postContent==""&&allImg.length==0){
+					plus.nativeUI.toast("文字和图片内容不能同时为空",{duration:"short"});
+					return;}
+				//构建帖子内容
+				var post = document.createElement('div');
+				post.className = 'mui-forum-post';
+				post.innerHTML = "<div class='mui-forum-postTopBox'><div id='mui-circle-forumName-boxLeft'><img class='mui-circle-blogCharchter' id='mui-circle-forumCharchter' src='"+userLogo+"' /></div><div id='mui-circle-forumName-boxRight'><div class='mui-circle-forumName-boxRight-line1'><span clss='mui-forum-username'>"+userName+"</span><span class='mui-forum-userSex mui-icon iconfont icon-"+userSex+"'></span><span class='mui-forum-postRole mui-icon iconfont icon-"+userPostRole+"'></span></div><div class='mui-circle-forumName-boxRight-line2'><span class='mui-forum-postStair'>第"+floor+"楼</span><span class='mui-forum-posttime'>"+postTime+"</span></div></div></div><div class='mui-forum-postText'>"+postContent+"</div><div class='mui-forum-postImgBox'>"+postImg+"</div></div></div>";
+				table.insertBefore(post,bottomTip);
+				//发送跟帖后，清空文本框，收起图片容器
+				document.getElementById("mui-forum-inputBottom").value="";
+				document.getElementById("mui-forumPost-imgBox").style.display = "none";
+			}
+			//显示图片容器的方法
+			var flag = 0;
+
+			function showImgBox() { 
+				if (!flag) {
+					document.getElementById("mui-forumPost-imgBox").style.display = "block";
+					flag = 1;
+				} else {
+					document.getElementById("mui-forumPost-imgBox").style.display = "none";
+					flag = 0;
+				}
+			}
+			//回帖中插入图片的方法
+			var imgNum = 0;
+
+			function forumPostImgs() {
+				// 从相册中选择图片
+				plus.gallery.pick(function(path) {
+					var testBox = document.getElementById("testBox");
+					addImgBox(path);
+					imgNum += 1;
+					//	限制最多选九张相片
+					if (imgNum >= 9) {
+						var imgBox = document.getElementById("mui-forumPost-imgBox");
+						var addBtn = document.getElementById("addImgBtn");
+						imgBox.removeChild(addBtn);
+						document.getElementById("forumPostBtn").disabled = "true";
+					}
+				}, function(e) {}, {
+					filter: "image"
+				});
+			}
+			//          消除已经选好的照片的方法
+			function cancelImg(a) {
+				var bts = ["是", "否"];
+				plus.nativeUI.confirm("是否消除该图片？", function(e) {
+					if (e.index) {} else {
+						var imgBox = document.getElementById("mui-forumPost-imgBox");
+						var addBtn = document.getElementById("addImgBtn");
+						imgBox.removeChild(a);
+						imgNum -= 1;
+						//							判断添加摁钮是否已经存在，若不存在则添加添加摁钮
+						if (!addBtn) {
+							createAddBtn();
+							document.getElementById("forumPostBtn").disabled = false;
+						}
+					}
+				})
+			}
+
+			function addImgBox(path) {
+				var Box = document.body.querySelector(".mui-forumPost-imgBox");
+				var addImg = document.createElement('img');
+				addImg.src = path;
+				addImg.className = "mui-circleSubmit-img";
+				addImg.onclick = function() {
+					cancelImg(this)
+				}
+				Box.insertBefore(addImg, Box.firstChild);
+			}
+			//				重新创建添加摁钮的函数
+			function createAddBtn() {
+				var hr = document.getElementById("hr");
+				var Box = document.body.querySelector(".mui-forumPost-imgBox");
+				var addBtn = document.createElement("img");
+				addBtn.id = "addImgBtn";
+				addBtn.className = "mui-circleSubmit-img";
+				addBtn.onclick = forumPostImgs;
+				addBtn.src = "img/plus.jpg";
+				Box.insertBefore(addBtn, hr);
+			}
+		</script>
+	</body>
+
+</html>

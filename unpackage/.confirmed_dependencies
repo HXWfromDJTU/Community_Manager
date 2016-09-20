@@ -1,0 +1,533 @@
+{
+	"forum.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/CM.css",
+			"css/app.css"
+		],
+		"refer": []
+	},
+	"index.html": {
+		"resources": [
+			"index1.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"index1.html",
+			"index3.html",
+			"index4.html",
+			"index2.html"
+		]
+	},
+	"index1.html": {
+		"resources": [
+			"img/lunbo/ComSharePic/share4.jpg",
+			"img/user-logo.jpg",
+			"img/lunbo/ComSharePic/share6.jpg",
+			"img/lunbo/s1.jpg",
+			"img/lunbo/ComSharePic/share5.jpg",
+			"img/lunbo/ComSharePic/share3.jpg",
+			"img/lunbo/ComSharePic/share2.jpg",
+			"img/lunbo/s3.jpg",
+			"css/Cummunity Manager MUI.css",
+			"img/lunbo/s4.jpg",
+			"img/lunbo/s2.jpg",
+			"img/lunbo/ComSharePic/share1.jpg",
+			"js/Cummunity Manager MUI.js",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/app.css",
+			"css/CM.css",
+			"bill_show.html",
+			"scan.html",
+			"alarm.html"
+		],
+		"refer": [
+			"scan.html",
+			"express_query.html",
+			"contact.html",
+			"setting.html",
+			"login.html",
+			"alarm.html",
+			"bill_show.html",
+			"repair.html",
+			"friend_visiting.html",
+			"suggestion.html"
+		]
+	},
+	"index3.html": {
+		"resources": [
+			"img/mainItem/item3.jpg",
+			"img/mainItem/flower2.jpg",
+			"img/mainItem/item5.jpg",
+			"img/mainItem/clothes (3).jpg",
+			"img/mainItem/item6.jpg",
+			"img/mainItem/clothes (4).jpg",
+			"img/mainItem/item4.jpg",
+			"img/mainItem/item1.jpg",
+			"img/mainItem/life (5).jpg",
+			"css/iconfont.css",
+			"img/mainItem/flower1.jpg",
+			"img/mainItem/life (2).jpg",
+			"fonts/iconfont.ttf",
+			"img/mainItem/clothes (1).jpg",
+			"img/mainItem/life (1).jpg",
+			"img/mainItem/item2.jpg",
+			"img/mainItem/life (4).jpg",
+			"img/mainItem/life (3).jpg",
+			"img/mainItem/fuwu (1).jpg",
+			"img/mainItem/life (6).jpg",
+			"img/mainItem/flower3.jpg",
+			"img/mainItem/fuwu (2).jpg",
+			"img/mainItem/banner1.png",
+			"css/Cummunity Manager MUI.css",
+			"img/mainItem/fuwu (3).jpg",
+			"img/mainItem/item7.jpg",
+			"img/mainItem/flower4.jpg",
+			"img/mainItem/clothes (2).jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"index4.html": {
+		"resources": [
+			"forum.html",
+			"img/lunbo/sc1.jpg",
+			"img/lunbo/sc2.jpg",
+			"css/app.css",
+			"css/iconfont.css",
+			"img/lunbo/sc3.jpg",
+			"fonts/iconfont.ttf",
+			"img/lunbo/sc4.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"chat.html",
+			"mark.html",
+			"camera.html",
+			"circle_submit.html",
+			"contact.html",
+			"forum_post.html",
+			"help_order.html",
+			"mapTest.html",
+			"help_order_preview.html",
+			"waterfall.html",
+			"scan.html",
+			"express_query.html",
+			"alarm.html",
+			"friend_visiting.html",
+			"bill_show.html",
+			"setting.html",
+			"circle.html"
+		],
+		"refer": [
+			"forum.html",
+			"chat.html",
+			"mark.html",
+			"camera.html",
+			"circle_submit.html",
+			"contact.html",
+			"forum_post.html",
+			"help_order.html",
+			"mapTest.html",
+			"help_order_preview.html",
+			"waterfall.html",
+			"scan.html",
+			"express_query.html",
+			"alarm.html",
+			"friend_visiting.html",
+			"bill_show.html",
+			"setting.html",
+			"circle.html",
+			"index2_waterfall.html",
+			"peopleAround.html"
+		]
+	},
+	"index2.html": {
+		"resources": [
+			"img/lunbo/ComSharePic/share2.jpg",
+			"img/lunbo/ComSharePic/share4.jpg",
+			"img/user-logo.jpg",
+			"img/lunbo/ComSharePic/share6.jpg",
+			"img/lunbo/ComSharePic/share1.jpg",
+			"img/lunbo/ComSharePic/share5.jpg",
+			"img/lunbo/ComSharePic/share3.jpg",
+			"js/Cummunity Manager MUI.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"chat.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.imageviewer.css",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"js/mui.imageViewer.js",
+			"js/arttmpl.js",
+			"img/APPlogo.png",
+			"js/test.json",
+			"css/CM.css"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"mark.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"css/common.css",
+			"js/immersed.js",
+			"img/user-logo.jpg",
+			"css/app.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"mark.html",
+			"css/CM.css"
+		],
+		"refer": [
+			"mark.html"
+		]
+	},
+	"camera.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css",
+			"js/immersed.js"
+		],
+		"refer": []
+	},
+	"circle_submit.html": {
+		"resources": [
+			"img/plus.jpg",
+			"fonts/mui.ttf",
+			"img/lunbo/ComSharePic/share1.jpg",
+			"js/common.js",
+			"js/mui.min.js",
+			"js/immersed.js",
+			"css/mui.min.css",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"contact.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/chinese.js",
+			"css/mui.indexedlist.css",
+			"js/mui.indexedlist.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"forum_post.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/circle/circleCharacter.jpg",
+			"img/circle/circleTopPic.jpg",
+			"img/lunbo/ComSharePic/share3.jpg",
+			"js/mui.min.js",
+			"img/plus.jpg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"img/userCharacters/character (9).jpg",
+			"img/userCharacters/character (7).jpg",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"help_order.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"img/plus.jpg",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"mapTest.html": {
+		"resources": [
+			"js/baiduMapApi.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"help_order_preview.html": {
+		"resources": [
+			"img/mainItem/flower2.jpg",
+			"fonts/mui.ttf",
+			"img/mainItem/flower4.jpg",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"waterfall.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/lunbo/ComSharePic/share1.jpg",
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"scan.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		],
+		"refer": []
+	},
+	"express_query.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/CM.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"alarm.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"js/immersed.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"css/CM.css",
+			"img/APPlogo.png"
+		],
+		"refer": [
+			"maps_map.html"
+		]
+	},
+	"friend_visiting.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/qrcode.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/CM.css"
+		],
+		"refer": []
+	},
+	"bill_show.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"js/immersed.js",
+			"css/common.css",
+			"css/app.css",
+			"css/mui.min.css",
+			"css/CM.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"setting.html": {
+		"resources": [
+			"css/feedback-page.css",
+			"js/mui.view.js",
+			"img/user-logo.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/APPlogo.png"
+		],
+		"refer": []
+	},
+	"maps_map.html": {
+		"resources": [
+			"css/common.css",
+			"maps_map_sub.html",
+			"js/common.js",
+			"js/immersed.js"
+		],
+		"refer": [
+			"maps_map_sub.html"
+		]
+	},
+	"circle.html": {
+		"href": "circle.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/CM.css",
+			"css/iconfont.css",
+			"img/user-logo.jpg",
+			"img/circle/circleTopPic.jpg",
+			"img/circle/circleCharacter.jpg",
+			"img/userCharacters/character (1).jpg",
+			"img/userCharacters/character (2).jpg",
+			"circle_submit.html",
+			"fonts/mui.ttf",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"circle_submit.html"
+		],
+		"priority": 0
+	},
+	"index2_waterfall.html": {
+		"href": "index2_waterfall.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"maps_map_sub.html": {
+		"href": "maps_map_sub.html",
+		"resources": [
+			"css/common.css"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"login.html": {
+		"href": "login.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/APPlogo.png"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"tab-webview-main.html": {
+		"resources": [
+			"tab-webview-subpage-about.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"tab-webview-subpage-about.html",
+			"tab-webview-subpage-setting.html",
+			"tab-webview-subpage-chat.html",
+			"tab-webview-subpage-contact.html"
+		]
+	},
+	"tab-webview-subpage-setting.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"tab-webview-subpage-chat.html": {
+		"resources": [
+			"dtpicker.html",
+			"echarts.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"repair.html"
+		],
+		"refer": [
+			"dtpicker.html",
+			"echarts.html"
+		]
+	},
+	"dtpicker.html": {
+		"resources": [
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"echarts.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"libs/echarts-all.js",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"repair.html": {
+		"resources": [
+			"css/CM.css",
+			"img/plus.jpg",
+			"css/feedback-page.css",
+			"css/app.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"tab-webview-subpage-about.html": {
+		"resources": [
+			"img/lunbo/s3.jpg",
+			"img/user-logo.jpg",
+			"img/lunbo/s4.jpg",
+			"img/lunbo/s2.jpg",
+			"css/CM.css",
+			"css/app.css",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"img/lunbo/s1.jpg"
+		]
+	},
+	"suggestion.html": {
+		"resources": [
+			"img/plus.jpg",
+			"css/feedback-page.css",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/CM.css",
+			"css/mui.min.css"
+		]
+	},
+	"peopleAround.html": {
+		"resources": [
+			"img/userCharacters/character (1).jpg",
+			"css/CM.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"img/userCharacters/character (3).jpg",
+			"img/userCharacters/character (2).jpg",
+			"img/userCharacters/character (4).jpg",
+			"img/userCharacters/character (10).jpg",
+			"img/userCharacters/character (6).jpg",
+			"img/userCharacters/character (5).jpg",
+			"img/userCharacters/character (8).jpg",
+			"img/userCharacters/character (9).jpg",
+			"img/userCharacters/character (7).jpg"
+		]
+	}
+}

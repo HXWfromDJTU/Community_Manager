@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/dropdownMenu.css">
+		<script src="js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div id="menu-class" class="mui-header-item mui-icon mui-icon-arrowdown">
+				帮帮分类
+			</div>
+			<div id="menu-sort" class="mui-header-item mui-icon mui-icon-arrowdown">
+				默认排序
+			</div>
+		</header>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<!--第一张单开始-->
+					<ul class="mui-table-view" id="mui-takeOrder-ul">
+						<li class="mui-table-view-cell">
+							<div class="mui-takeOrder-line1">
+								<span class="mui-icon iconfont icon-order1"></span>
+								<span class="mui-pull-right">成交率:80%</span>
+								<span class="mui-pull-right mui-takeOrder-goodType">小型箱件</span>
+								<span class="mui-pull-right mui-takeOrder-serviceType">送货</span>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-takeOrder-line2">
+								<div class="mui-takeOrder-line2-boxLeft">
+									<div class="mui-takeOrder-line2-boxLeft-line1">
+										<span class="mui-takeOrder-listItem">起点</span>
+										<span class="mui-takeOrder-startCon">大连市旅顺口区兴发路</span>
+									</div>
+									<div>
+										<span class="mui-takeOrder-listItem">终点</span>
+										<span class="mui-takeOrder-endCon">大连市黄河路大连交大</span>
+									</div>
+								</div>
+								<div class="mui-takeOrder-line2-boxRight">
+									<div class="mui-icon iconfont icon-shijian mui-takeOrder-timeIcon"></div>
+									<div class="mui-takeOrder-time" id="m">剩余时间</div>
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-takeOrder-line3">
+								<span class="mui-takeOrder-fee">急+5</span>
+								<span class="mui-takeOrder-extra">本+15</span>
+								<span class="mui-btn mui-btn-green mui-pull-right mui-takeOrder-btn">
+							抢单
+						</span>
+							</div>
+						</li>
+					</ul>
+					<div id="info"></div>
+				</div>
+			</div>
+		</div>
+		<!--下拉菜单展示-->
+		<div id="menu-wrapper1" class="menu-wrapper hidden">
+			<div id="menu1" class="menu">
+				<ul class="mui-table-view mui-table-view-inverted">
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉一</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉一</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉一</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉一</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉一</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="menu-wrapper2" class="menu-wrapper hidden">
+			<div id="menu2" class="menu">
+				<ul class="mui-table-view mui-table-view-inverted">
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉二</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉二</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="javascript:;">下拉二</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="menu-backdrop1" class="menu-backdrop"></div>
+        <div id="menu-backdrop2" class="menu-backdrop"></div>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+            //获取到menu容器对象
+			var menuWrapper1 = document.getElementById("menu-wrapper1");
+			var menuWrapper2 = document.getElementById("menu-wrapper2");
+			var menu1 = document.getElementById("menu1");
+			var menu2 = document.getElementById("menu2");
+			var menuWrapperClassList1 = menuWrapper1.classList;
+			var menuWrapperClassList2 = menuWrapper2.classList;
+			var backdrop1 = document.getElementById("menu-backdrop1");
+			var backdrop2 = document.getElementById("menu-backdrop2");
+			//给以下三种情况绑定了菜单的toggleMenu方法
+			backdrop1.addEventListener('tap', toggleMenu);
+			backdrop2.addEventListener('tap', toggleMenu);
+			document.getElementById("menu-class").addEventListener('tap', toggleMenu);
+			document.getElementById("menu-sort").addEventListener('tap', toggleMenu)
+				//下沉菜单中的点击事件
+			mui('#menu1').on('tap', 'a', function() {
+				toggleMenu(this);
+				document.getElementById("menu-class").addEventListener.innerHTML=this.innerHTML;
+			});
+			mui('#menu2').on('tap', 'a', function() {
+				toggleMenu(this);
+				document.getElementById("menu-sort").addEventListener.innerHTML=this.innerHTML;
+			});
+			//busying为旗帜变量
+			var busying = false;
+			function toggleMenu(a) {
+				if (busying) {
+					return;
+					
+				}
+				busying = true;
+				if (menuWrapperClassList1.contains('mui-active')) {
+					document.body.classList.remove('menu-open');
+					menuWrapper1.className = 'menu-wrapper fade-out-up animated';
+					menuWrapper2.className = 'menu-wrapper fade-out-up animated';
+					menu1.className = 'menu bounce-out-up animated';
+					menu2.className = 'menu bounce-out-up animated';
+					setTimeout(function() {
+						backdrop1.style.opacity = 0;
+						menuWrapper1.classList.add('hidden');
+						backdrop2.style.opacity = 0;
+						menuWrapper2.classList.add('hidden');
+					}, 500);
+				} else {
+					document.body.classList.add('menu-open');
+					menuWrapper1.className = 'menu-wrapper fade-in-down animated mui-active';
+					menu1.className = 'menu bounce-in-down animated';
+					backdrop1.style.opacity = 1;
+					menuWrapper2.className = 'menu-wrapper fade-in-down animated mui-active';
+					menu2.className = 'menu bounce-in-down animated';
+					backdrop2.style.opacity = 1;
+				}
+				setTimeout(function() {
+					busying = false;
+				},500);
+			}
+		</script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-scroll');
+					var cells = document.body.querySelectorAll('.mui-content');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var orderStatus = Math.round(Math.random());
+						var ul = document.createElement('ul');
+						ul.className = 'mui-table-view';
+						ul.id = 'mui-takeOrder-ul';
+						ul.innerHTML = '<li class="mui-table-view-cell"><div class="mui-takeOrder-line1"><span class="mui-icon iconfont icon-order' + orderStatus + ' icon-order"></span><span class="mui-pull-right">成交率:80%</span><span class="mui-pull-right mui-takeOrder-goodType">小型箱件</span><span class="mui-pull-right mui-takeOrder-serviceType">送货</span></div></li><li class="mui-table-view-cell"><div class="mui-takeOrder-line2"><div class="mui-takeOrder-line2-boxLeft"><div class="mui-takeOrder-line2-boxLeft-line1"><span class="mui-takeOrder-listItem">起点</span><span class="mui-takeOrder-startCon">大连市旅顺口区兴发路</span></div><div><span class="mui-takeOrder-listItem">终点</span><span class="mui-takeOrder-endCon">大连市黄河路大连交大</span></div></div><div class="mui-takeOrder-line2-boxRight"><div class="mui-icon iconfont icon-shijian mui-takeOrder-timeIcon"></div><div class="mui-takeOrder-time">05:20</div></div></div></li><li class="mui-table-view-cell"><div class="mui-takeOrder-line3"><span>+5元</span><span>+15元</span><span class="mui-btn mui-btn-green mui-pull-right mui-takeOrder-btn">抢单</span></div></li>';
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(ul, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var ul = document.createElement('ul');
+						ul.className = 'mui-table-view';
+						ul.innerHTML = '<li class="mui-table-view-cell"><div class="mui-takeOrder-line1"><span class="mui-icon iconfont icon-order' + orderStatus + ' icon-order"></span><span class="mui-pull-right">成交率:80%</span><span class="mui-pull-right mui-takeOrder-goodType">小型箱件</span><span class="mui-pull-right mui-takeOrder-serviceType">送货</span></div></li><li class="mui-table-view-cell"><div class="mui-takeOrder-line2"><div class="mui-takeOrder-line2-boxLeft"><div class="mui-takeOrder-line2-boxLeft-line1"><span class="mui-takeOrder-listItem">起点</span><span class="mui-takeOrder-startCon">大连市旅顺口区兴发路</span></div><div><span class="mui-takeOrder-listItem">终点</span><span class="mui-takeOrder-endCon">大连市黄河路大连交大</span></div></div><div class="mui-takeOrder-line2-boxRight"><div class="mui-icon iconfont icon-shijian mui-takeOrder-timeIcon"></div><div class="mui-takeOrder-time">05:20</div></div></div></li><li class="mui-table-view-cell"><div class="mui-takeOrder-line3"><span>+5元</span><span>+15元</span><span class="mui-btn mui-btn-green mui-pull-right mui-takeOrder-btn">抢单</span></div></li>';
+						table.appendChild(ul);
+					}
+				}, 1000);
+			}
+			//设定倒计时定时器
+			var interval = 1000;
+
+			function ShowCountDown(year, month, day, divname) {
+				var now = new Date();
+				var endDate = new Date(year, month - 1, day);
+				var leftTime = endDate.getTime() - now.getTime();
+				var leftsecond = parseInt(leftTime / 1000);
+				//var day1=parseInt(leftsecond/(24*60*60*6)); 
+				var day1 = Math.floor(leftsecond / (60 * 60 * 24));
+				var hour = Math.floor((leftsecond - day1 * 24 * 60 * 60) / 3600);
+				var minute = Math.floor((leftsecond - day1 * 24 * 60 * 60 - hour * 3600) / 60);
+				var second = Math.floor(leftsecond - day1 * 24 * 60 * 60 - hour * 3600 - minute * 60);
+				var cc = document.getElementById(divname);
+				cc.innerHTML = hour + "时" + minute + "分" + second;
+			}
+			window.setInterval(function() {
+				ShowCountDown(2016, 4, 9, 'm');
+			}, interval);
+		</script>
+	</body>
+
+</html>

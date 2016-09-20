@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/CM.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+//    	获取二维码JS
+//    	var apiURL='http://api.wwei.cn/wwei.html';
+//    	var send={data:"二维码内容",
+//    		     apikey:"20160410239565"
+//    	          }
+//    	var success=function(data){
+//    		alert(data.qr_filepath);
+//    	}
+//    	var dataType=JSON;
+//    	mui.get(apiURL,send,success,dataType);
+var startTime="";
+var endTime="";
+function pickDate(a) {
+	var dDate = new Date();
+	dDate.setFullYear(2014, 0, 1);
+	var minDate = new Date();
+	minDate.setFullYear(2010, 0, 1);
+	var maxDate = new Date();
+	maxDate.setFullYear(2016, 11, 31);
+	plus.nativeUI.pickDate(function(e) {
+		var d = e.date;
+		if(a.id=="startTime")
+		{startTime="";
+		startTime+=d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();}
+		else
+		{endTime="";
+		endTime+=d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();}
+	    pickTime(a);
+	}, function(e) {
+		alert("未选择日期：" + e.message);
+	}, {
+		title: "请选择日期",
+		date: dDate,
+		minDate: minDate,
+		maxDate: maxDate
+	});
+        }
+function pickTime(a) {
+	var dTime=new Date();
+	dTime.setHours(6,0);
+	plus.nativeUI.pickTime(function(e){
+		var d=e.date;
+		if(a.id=="startTime")
+		{
+		startTime+="&nbsp&nbsp"+d.getHours()+"时"+d.getMinutes()+"分";
+        document.getElementById("startTime").innerHTML=startTime;}
+		else
+		{
+			endTime+="&nbsp&nbsp"+d.getHours()+"时"+d.getMinutes()+"分";
+        document.getElementById("endTime").innerHTML=endTime;
+         }
+	},function (e){
+		alert( "取消选择时间！" );
+	},{title:"请选择时间",is24Hour:true,time:dTime});
+}
+function inputItem(a){ 
+	var bts=["确认","取消"];
+	plus.nativeUI.prompt("请输入你的内容",function(e){
+		var i=e.index;
+		if(e.index==0){
+			a.innerHTML==e.value;
+		}
+		else{
+		}
+	},"nativeUI","姓名",bts);
+}
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">有朋远来</h1>
+	</header>
+	<div class="mui-content">
+			<div class="friendVisting-box1">
+				<div class="friendVisting-box1-left">
+					<span class="friendVisting-sologan">
+						访客通行证
+					</span>
+					<div class="friendVisting-timeMessage">
+						<span>有效期</span>
+						<span onclick="pickDate(this)" id="startTime">2016-4-11 13:30</span>
+						<span>至</span>
+						<span onclick="pickDate(this)" id="endTime">2016-4-11 15:30</span>
+					</div>
+				</div>
+				<div class="friendVisting-box1-right">
+					<img src="img/qrcode.png" class="friendVisting-qrcode"/>
+				</div>
+			</div>
+			<hr>
+			<div class="friendVisting-box2">
+				<div class="friendVisting-box2-left">
+					<span  class="mui-block friendVisting-font-item">访客姓名</span>
+					<span onclick="inputItem(this)" class="mui-block friendVisting-font-content">谭某某</span>
+				</div >
+				<div class="friendVisting-box2-right">
+					<span   class="mui-block friendVisting-font-item">拜访小区</span>
+					<span onclick="inputItem(this)" class="mui-block friendVisting-font-content">旅顺华发新城</span>
+				</div>
+			</div>
+			<hr>
+			<div class="friendVisting-box3">
+				<div class="friendVisting-box3-left">
+					<span class="mui-block friendVisting-font-item">拜访目的</span>
+					<span onclick="inputItem(this)" class="mui-block friendVisting-font-content">闲话家常</span>
+				</div>
+				<div class="friendVisting-box3-middle">
+					<span  class="mui-block friendVisting-font-item">性别</span>
+					<span  onclick="inputItem(this)" class="mui-block friendVisting-font-content">男</span>
+				</div>
+				<div class="friendVisting-box3-right">
+					<span class="mui-block friendVisting-font-item">开车来访</span>
+					<span onclick="inputItem(this)" class="mui-block friendVisting-font-content">是</span>
+				</div>
+			</div>
+			<span style="margin-top: 30px;" class="mui-btn-exclusive mui-btn mui-btn-positive">生成二维码</span>
+		    <span style="margin-top: 10px;" class="mui-btn-exclusive mui-btn mui-btn-red">发送给朋友</span>
+	</div>
+</body>
+</html>

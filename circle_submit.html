@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+			var imgNum = 0;
+
+			function galleryImg() {
+				// 从相册中选择图片
+				plus.gallery.pick(function(path) {
+					
+					addImgBox(path);
+					imgNum += 1;
+					//					限制最多选九张相片
+					if (imgNum >= 9) {
+						var imgBox = document.getElementById("mui-circleSubmit-imgBox");
+						var addBtn = document.getElementById("addImgBtn");
+						imgBox.removeChild(addBtn);
+					}
+				}, function(e) {}, {
+					filter: "image"
+				});
+			}
+			//          消除已经选好的照片
+			function cancelImg(a) {
+				var bts = ["是", "否"];
+				plus.nativeUI.confirm("是否消除该图片？", function(e) {
+					if (e.index) {} else {
+						var imgBox = document.getElementById("mui-circleSubmit-imgBox");
+						var addBtn = document.getElementById("addImgBtn");
+						imgBox.removeChild(a);
+						imgNum -= 1;
+						//							判断添加摁钮是否已经存在，若不存在则添加添加摁钮
+						if (!addBtn) {
+							createAddBtn();
+						}
+					}
+				})
+			}
+
+			function addImgBox(path) {
+				var Box = document.body.querySelector(".mui-circleSubmit-imgBox");
+				var addImg = document.createElement('img');
+				addImg.src = path;
+				addImg.className = "mui-circleSubmit-img";
+				addImg.onclick = function() {
+					cancelImg(this)
+				}
+				Box.insertBefore(addImg, Box.firstChild);
+			}
+			//				重新创建添加摁钮的函数
+			function createAddBtn() {
+				var hr = document.getElementById("hr");
+				var Box = document.body.querySelector(".mui-circleSubmit-imgBox");
+				var addBtn = document.createElement("img");
+				addBtn.id = "addImgBtn";
+				addBtn.className = "mui-circleSubmit-img";
+				addBtn.onclick = galleryImg;
+				addBtn.src = "img/plus.jpg";
+				Box.insertBefore(addBtn, hr);
+			}
+			// 通过定位模块获取位置信息			
+			function geoInf(position) {
+				var str = "";
+				str += "地址：" + position.addresses + "\n"; //获取地址信息
+				document.getElementById("geoLocationMessage").innerHTML = str;
+			}
+
+			function getPos() {
+				plus.geolocation.getCurrentPosition(geoInf, function(e) {
+					document.getElementById("geoLocationMessage").style.color = "crimson";
+					document.getElementById("geoLocationMessage").innerHTML = "定位失败";
+				});
+			}
+		</script>
+	</head> 
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-btn mui-pull-left">取消</a>
+			<a class="mui-action-back mui-btn mui-btn-primary mui-pull-right">发送</a>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div class="mui-input-row">
+					<textarea type="text" placeholder="这一刻的想法。。。"></textarea>
+				</div>
+				<div class="mui-circleSubmit-imgBox" id="mui-circleSubmit-imgBox">
+					<img id="addImgBtn" onclick="galleryImg()" class="mui-circleSubmit-img" src="img/plus.jpg" />
+					<hr id="hr">
+					<div>
+						<span class="mui-icon iconfont icon-dingwei" onclick="getPos()">选择定位</span>
+						<span id="geoLocationMessage" class="mui-pull-right">未定位</span>
+					</div>
+				</div>
+			</div>
+			<div class="mui-card">
+				<ul class="mui-table-view">
+
+					<li class="mui-table-view-cell">
+						<span class="mui-icon iconfont icon-gongkai">是否公开</span>
+						<div class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<span class="mui-icon iconfont icon-aite">提醒谁看</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/immersed.js"></script>
+	</body>
+
+</html>

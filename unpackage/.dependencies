@@ -1,0 +1,152 @@
+{
+  "forum.html": {
+    "href": "forum.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 0
+  },
+  "circle_submit.html": {
+    "href": "circle_submit.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 1
+  },
+  "circle.html": {
+    "href": "circle.html",
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/CM.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "img/user-logo.jpg",
+      "img/circle/circleTopPic.jpg",
+      "img/circle/circleCharacter.jpg"
+    ],
+    "refer": [
+      "circle_submit.html"
+    ],
+    "priority": 1
+  },
+  "chat.html": {
+    "href": "chat.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "refer": [],
+    "priority": 2
+  },
+  "contact.html": {
+    "href": "contact.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 3
+  },
+  "friend_visiting.html": {
+    "href": "friend_visiting.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 4
+  },
+  "forum_post.html": {
+    "href": "forum_post.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 6
+  },
+  "mark.html": {
+    "href": "mark.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 7
+  },
+  "help_order.html": {
+    "href": "help_order.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 8
+  },
+  "help_order_preview.html": {
+    "href": "help_order_preview.html",
+    "resources": [
+      "css/CM.css"
+    ],
+    "priority": 9
+  },
+  "index2_waterfall.html": {
+    "href": "index2_waterfall.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.min.js"
+    ],
+    "priority": 10
+  },
+  "express_query.html": {
+    "href": "express_query.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/CM.css"
+    ],
+    "priority": 12
+  },
+  "maps_map_sub.html": {
+    "href": "maps_map_sub.html",
+    "resources": [
+      "css/common.css"
+    ],
+    "priority": 13
+  },
+  "bill_show.html": {
+    "href": "bill_show.html",
+    "resources": [
+      "fonts/mui.ttf",
+      "css/CM.css"
+    ],
+    "priority": 14
+  },
+  "setting.html": {
+    "href": "setting.html",
+    "resources": [
+      "img/APPlogo.png"
+    ],
+    "priority": 15
+  },
+  "index4.html": {
+    "href": "index4.html",
+    "resources": [],
+    "refer": [
+      "circle.html",
+      "index2_waterfall.html"
+    ],
+    "priority": 0
+  },
+  "login.html": {
+    "href": "login.html",
+    "resources": [
+      "fonts/mui.ttf"
+    ],
+    "priority": 5
+  },
+  "index1.html": {
+    "href": "index1.html",
+    "resources": [],
+    "refer": [
+      "scan.html",
+      "express_query.html",
+      "contact.html",
+      "setting.html",
+      "login.html"
+    ],
+    "priority": 1
+  }
+}

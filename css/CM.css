@@ -1,0 +1,758 @@
+/*------------------------------以下是自定义样式------------------------------*/
+#sidebarLogo img{
+	   border:purple solid 2px;
+	   border-radius: 40px;}
+#sidebarLogo{height:150px;}
+#btn-area{
+				text-align: center;
+			}
+#btn-area button {
+				width: 47%;
+				font-size: 14px;
+			}
+#pageSearch .mainItem{background: #DDDDDD;}
+#pageSearchGarden .mainItem{background: #DDDDDD;}
+/*//让index的分隔带<hr>标签随变*/
+@media screen and (max-width: 300px) {
+    #superhr hr{
+        width: 15%;
+    }
+}
+/*仿淘宝的字体颜色*/
+
+.mui-text-price-l {
+	color: orangered;
+	font-size: 12px;
+}
+
+.mui-text-price-sm {
+	color: orangered;
+	font-size: 12px;
+}
+
+
+/*针对于浮动留言的样式*/
+
+.mui-note-container {
+	margin-top: 15px;
+}
+ 
+.mui-note {
+	width: 45%;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 5px 5px;
+	word-wrap: normal;
+	box-shadow: 10px 10px 10px #888888;
+	word-wrap: break-word;
+	display: inline-block;
+}
+
+.mui-note-img {
+	width: 100%; 
+	height: 100%;
+	display: inline;
+	float: left;
+	border-radius: 10px;
+}
+
+.mui-note-class {
+	background: orange;
+	border-radius: 5px;
+	border: 1px solid purple;
+	margin: 0px 3px;
+	width: 20%;
+	font-size: 80%;
+}
+
+.mui-note-text {
+	font-size: 13px;
+	font-family: "微软雅黑";
+}
+
+.mui-note-icon {
+	display: block;
+	margin-left: 5px;
+	font-size: 15px;
+	color: darkgray;
+}
+
+.mui-note-posttime {
+	margin-right: 5px;
+}
+
+/*社交圈相关样式*/
+
+.mui-circle-topBox {
+	width: 100%;
+	height: 250px;
+	border: 2px solid red;
+	position: absolute;
+	top: -295px;
+	left: 0px;
+}
+
+.mui-circle-topPic {
+	width: 100%;
+	height: 100%;
+}
+
+.mui-circle-topName {
+	position: absolute;
+	left: 50%;
+	top: 87%;
+	font-family: "微软雅黑";
+	font-size: 25px;
+}
+
+.mui-circle-topCharacter {
+	width: 80px;
+	height: 80px;
+	border: 2px solid black;
+	border-radius: 10px;
+	position: absolute;
+	left: 70%;
+	top: 80%;
+}
+
+
+/*朋友圈主题内容部分样式*/
+
+.mui-circle-blogBox {
+	border: 1px solid black;
+	position: absolute;
+	top: 340px;
+}
+
+.mui-circle-blog {
+	border: 1px solid red;
+	width: 100%;
+}
+
+.mui-circle-blogLeft {
+	border: 1px solid red;
+	margin-top: 5px;
+	width: 16.6%;
+    height:100%;
+    float:left;
+}
+
+.mui-circle-blogCharchter {
+	border: 1px solid black;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.mui-circle-blogRight {
+	border: 5px solid chartreuse;
+	width: 83%;
+	float:left;
+}
+
+.mui-circle-blogName {
+	border: 1px solid black;
+	font-size: 15px;
+	color: #0062CC;
+	font-family: "微软雅黑";
+}
+
+.mui-circle-blogText {
+	border: 1px solid black;
+	margin-top: 5px;
+}
+
+.mui-circle-blogImgBox {
+	border: 1px solid black;
+	padding-bottom: 5px;
+}
+
+
+/*重写listview-cell的部分样式*/
+
+#mui-circle-blogImg {
+	width: 90px;
+	height: 90px;
+	padding: 5px 5px;
+}
+
+.mui-circle-blogStatus {
+	border: 1px solid black;
+	width: 98%;
+	
+}
+
+.mui-circle-blogStatus .mui-circle-blogTime {
+	color: darkgray;
+}
+
+.mui-circle-blogStatus .mui-icon {
+	color: darkgray;
+}
+
+.mui-circle-blogComment {
+	border: 1px solid black;
+	background: #E8E8E8;
+}
+
+.mui-circle-blogCommentText {
+	font-size: 15px;
+	font-family: "微软雅黑";
+}
+
+.mui-circle-blogZan {
+	width: 100%;
+	border: 1px solid black;
+}
+
+.mui-circle-blogZan .icon-zanyang {
+	color: #0062CC;
+}
+
+
+/*朋友圈评论弹出提示窗口样式设置*/
+
+#mui-popover {
+	border: 1px solid black;
+	background-color: #666666;
+	width: 150px;
+	border-radius: 5px;
+	background-color: #A9A9A9;
+}
+
+.mui-backdrop.mui-active {
+	background-color: rgba(0, 0, 0, 0)
+}
+
+#mui-popover .mui-icon {
+	width: 47%;
+}
+
+#mui-popover .mui-popover-arrow:after {
+	background-color: #A9A9A9;
+}
+
+
+/*左邻右里的样式*/
+
+.mui-icon.iconfont.icon-sex0 {
+	color: palevioletred;
+}
+
+.mui-icon.iconfont.icon-sex1 {
+	color: cornflowerblue;
+}
+
+.mui-table-view.peopleAround .mui-media-body {
+	float: left;
+}
+
+.mui-media-signal {
+	float: right;
+	border-radius: 5px;
+	width: 30%;
+	height: 80%;
+	background-color: gainsboro;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+}
+
+
+/*登录页面的样式*/
+
+.loginTop {
+	width: 100%;
+	height: 30%;
+	padding: 5% 44% 5% 40%;
+}
+
+.loginTopLogo {
+	height: 80px;
+	width: 80px;
+	border-radius: 40px;
+	border:2px solid gray;
+}
+
+
+/*注册页面的样式*/
+.mui-input-clear.mui-input.mui-confirmNum{
+	width:55%;
+	display: inline;
+	float: left;
+}
+#registerBtn{
+	margin:0 15%;
+	width:70%;
+	border-radius: 5px;
+	font-size: 25px;
+}
+#mui-getConfirmNum{
+	width:40%;
+}
+#showCityPicker3,#showCityPicker{
+	width:40%;
+}
+.mui-input-clear.mui-input.mui-zoneShow{
+	width:23%;
+	padding:2px;
+	font-family: "微软雅黑";
+	background-color: darkgray;
+}
+/*信息录入界面样式*/
+#password1,#password2{width:50%;float:left;}
+/*社交圈提交界面样式*/
+.mui-circleSubmit-imgBox{
+	padding:5px;
+	border-radius: 3px;
+	background-color:white;
+}
+.mui-circleSubmit-img{
+	border-radius: 5px;
+	margin:0 5px;
+	width:85px;
+	height: 85px;
+	border:1px solid red ;
+}
+.mui-circleSubmit-imgBox hr{
+	width:95%;
+	
+}
+.mui-circleSubmit-imgBox .mui-icon.mui-icon-navigate{
+	margin-left:5px;
+	font-size: 18px;
+}
+#geoLocationMessage{
+	margin-right: 5px;
+	max-width: 60%;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+/*社区帖子楼层的样式（针对社交圈修改）*/
+#mui-circle-blogBox {
+	border: 1px solid black;
+	position: absolute;
+	top:45px;
+}
+.mui-forum-postRole.mui-icon.iconfont.icon-louzhu{
+	color:palevioletred;
+
+}
+.mui-forum-userSex.mui-icon.iconfont.icon-sex1{
+	color:cornflowerblue;
+}
+.mui-forum-postImg{
+	max-width:100%;
+	margin:5px 0;
+}
+#mui-circle-blogRight-forum{
+	width:100%;
+}
+.mui-forum-postTopBox{
+	border:1px solid purple;
+	position: relative;
+	margin:0 5px;
+}
+#mui-circle-forumCharchter{
+	
+}
+#mui-circle-forumName-boxLeft{
+	border: 1px solid red;
+	margin-top:2px;
+	width: 17%;
+	
+}
+#mui-circle-forumName-boxRight{
+	border: 1px solid red;
+	width:83%;
+	height: 90%;
+	margin-left: 2px;
+	position: absolute;
+	top:2px;
+	left:17%;
+}
+.mui-circle-forumName-boxRight-line1{
+	margin-top:2px;
+	margin-bottom: 5px;;
+}
+.mui-forum-postStair{
+	margin-right: 5px;
+}
+.mui-forum-posttime{
+	font-size:15px;
+	color:darkgrey;
+}
+.mui-form-username{
+	
+}
+.mui-forum-commenttime{
+	font-size:12px;
+	color:darkgrey;
+}
+.mui-forum-postText{
+	border: 1px solid black;
+	margin:2px 5px;
+}
+.mui-forum-postImgBox{
+	border:1px solid red;
+	margin:2px 5px;
+}
+.mui-circle-blogStatus{
+	border: 1px solid black;
+	margin:2px 5px;
+}
+.mui-forum-postBox{
+	border: 1px solid red;
+}
+.mui-forum-post{
+	border: 5px solid chartreuse;
+}
+.mui-forum-postBottomBox{
+	border:1px solid red;
+}
+.mui-forum-postBottomImg{
+	padding:0 2%;
+	width:11%;
+	border:1px solid red;
+}
+.mui-forum-postBottomFace{
+	padding:0 2%;
+	width:11%;
+	border:1px solid red;
+}
+.mui-bar.mui-bar-tab .mui-forum-inputBottom{
+	width: 60%;
+	margin: 0;
+}
+.mui-forum-postBottomSend{
+	padding:0 2%;
+	width:13%;
+	border:1px solid red;
+}
+.mui-forumPost-imgBox{
+	display: none;
+	padding:5px;
+	border-radius: 3px;
+	background-color:white;
+}
+.mui-forumPost-imgPlus{
+	border-radius: 5px;
+	margin:0 5px;
+	width:85px;
+	height: 85px;
+	border:1px solid red ;
+}
+.mui-forum-bottomTip{
+	width:100%;
+	height:50px;
+}
+//社区帮帮帮下单界面
+.mui-help-order-container{
+	background-color: gray;
+	
+}
+#place{
+	font-family:"微软雅黑";
+	padding:0;
+	width:20%;
+	
+}
+#locating{
+	width: 75%;
+	color: #2187E7;
+	
+	overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+#mui-help-order-placeInput{
+	width:80%;
+	margin-top: 3px;
+	margin-bottom: 5px;
+	background: lightgray;
+}
+.mui-help-order-selectFont{
+	color: #2187E7;
+}
+.mui-icon.iconfont.icon-yiwen{
+	color: palevioletred;
+}
+.mui-help-order-summaryMessage{
+	width:100%;
+	height:48px;
+	
+	position: relative;
+}
+.mui-help-order-fee{
+	
+	width: 32.3%; 
+	margin-right:1%;
+	background-color:lightgray; 
+	position: absolute;
+	left:0px;
+	top:0px;
+}
+.mui-help-order-distence{
+	
+	width: 32.3%;
+	margin-right:1%;
+	background-color:lightgray; 
+	position: absolute;
+	left:34%;
+	top:0px;
+}
+.mui-help-order-time{
+	
+	width: 32.3%;
+	background-color:lightgray; 
+    position: absolute;
+	left:67.6%;
+	top:0px;
+}
+.mui-help-order-messageIcon{
+	font-size:15px;
+	text-align: center;
+	line-height: 270%;
+	width:20%;
+	height: auto
+	border:1px solid black;
+	float: left;
+}
+.mui-help-order-Message{
+	width:80%;
+	border-left:1px solid black;
+	float: left;
+}
+.mui-btn-radius{
+	border-radius: 13px;
+}
+.mui-btn-exclusive{
+	width:80%;
+	margin-top:10px;
+	margin-left:10%;
+}
+/*订单预览页面样式*/
+.mui-font-listItem{
+	width: 40%;
+	color: gray;
+}
+.mui-font-listContent{
+	width:50%;
+}
+/*抢单页面的样式*/
+.mui-takeOrder-line1{
+	margin-bottom: 10px;
+}
+.mui-icon.iconfont.icon-order0{
+	position: absolute;
+	color:green;
+	top:-25%;
+	left:3%;
+	font-size: -webkit-xxx-large;
+}
+.mui-icon.iconfont.icon-order1{
+	position: absolute;
+	color:red;
+	top:-25%;
+	left:3%;
+	font-size: -webkit-xxx-large;
+}
+
+.mui-takeOrder-serviceType{
+	margin-right: 1%;
+}
+.mui-takeOrder-goodType{
+	margin-right:15%;
+}
+.mui-takeOrder-line2{
+	
+}
+.mui-takeOrder-line2-boxLeft{
+	border:1px solid red;
+	width:70%;
+	float: left;
+}
+.mui-takeOrder-line2-boxLeft-line1{
+ 
+}
+.mui-takeOrder-line2-boxRight{
+	border:1px solid blue;
+	width: 30%;
+	float:right;
+}
+.mui-takeOrder-timeIcon{
+	color:green;
+	margin:0 35%;
+}
+.mui-takeOrder-time{
+	
+}
+.mui-takeOrder-listItem{
+	color: #777777;
+	width: 30%;
+}
+.mui-takeOrder-startCon{
+	background-color: #6495ED;
+	border-radius: 5px;
+	width:70%;
+}
+.mui-takeOrder-endCon{
+	background-color: #CF2D28;
+	border-radius: 5px;
+	width:70%;
+}
+.mui-takeOrder-line3{
+	
+}
+.mui-takeOrder-btn{
+	width:30%;
+}
+#mui-takeOrder-ul{
+	margin-bottom: 10px;
+}
+.mui-takeOrder-fee{
+	background-color: aquamarine;
+	border: 1px solid darkseagreen;
+	border-radius: 3px;
+	padding:2px 3%;
+	box-shadow: 2px 2px 2px  aquamarine;
+}
+.mui-takeOrder-extra{
+	background-color: #8A6DE9;
+	border: 1px solid #6641E2 ;
+	border-radius: 3px;
+	padding:2px 3%;
+	box-shadow: 2px 2px 2px  #8A6DE9;
+}
+/*抢单后预览页面样式*/
+.mui-character-list{
+	width:20%;
+	border-radius:50%;
+	float: left;
+}
+.mui-msgBox-list{
+	float: right;
+	margin-right: 5%;
+}
+.mui-username-list{
+	display: block;
+	color: cornflowerblue;
+}
+.mui-userBriefMeg-list{
+	display: block;
+	font-size: 13px;
+}
+.mui-header-item{
+	float: left;
+	height: 100%;
+	width:55%;
+	border:1px #0062CC solid;
+}
+/*主页index1.html的样式*/
+.icon-saoyisaoerweima,.icon-baojingzhuji,.icon-unie606,.icon-wuyebaoxiu,
+.icon-tousujianyi,.icon-jiaofei,.icon-baifang,.icon-bang{
+	color: dodgerblue;
+}
+/*报警页面样式*/
+
+#alarmbtn-box{
+	padding:0 30% 0 30%;
+}
+#alarmbtn{
+	height:200px;
+	width:200px;
+	border-radius:100px;
+	border:20px solid silver;
+}
+#otherChoice-box{
+	margin-top:15%;
+}
+#mui-btn-array-head {
+	background-color: crimson;
+	width: 80%;
+	margin-left: 10%;
+	font-size: 120%;
+	margin-bottom: 10px;
+	border: #0062CC solid 1px;
+}
+
+#mui-btn-array {
+	background-color: greenyellow;
+	font-size: 120%;
+	margin-bottom: 10px;
+	margin-left: 4%;
+	width: 45%;
+	border: #0062CC solid 1px;
+}
+.mui-btn-2inline{
+	width: 45%;
+	margin-left: 3%;
+	}
+/*有朋远来页面样式*/
+.friendVisting-box1{
+	margin-top: 15px;
+}
+.friendVisting-box1-left{
+	border: 1px solid red;
+	width:40%;
+	float: left;
+}
+.friendVisting-sologan{
+	background-color: #008000;
+	color: white;
+	padding:2px 20% 2px 3px;
+}
+.friendVisting-timeMessage{
+	margin-top: 15px;
+}
+#startTime{
+	display: block;
+	background-color: cornflowerblue;
+}
+#endTime{
+	display: block;
+	background-color: cornflowerblue;
+}
+.friendVisting-box1-right{
+	border: 1px solid red;
+	width:60%;
+	float: left;
+}
+.friendVisting-qrcode{
+	width:100%;
+}
+.friendVisting-box2{
+	padding:10px 0;
+}
+.friendVisting-box2-left{
+	width: 50%;
+	float: left;
+}
+.friendVisting-box2-right{
+	width: 50%;
+	float: left;
+}
+.friendVisting-box3{
+	padding-top: 10px;
+}
+.friendVisting-box3-left{
+	width: 33%;
+	float: left;
+	margin-right: 3%;
+}
+.friendVisting-box3-middle{
+	width: 30%;
+	float: left;
+}
+.friendVisting-box3-right{
+	width: 33%;
+	float: left;
+}
+.friendVisting-font-item{
+	font-size: small;
+	color: #2AC845
+}
+.friendVisting-font-content{
+	font-size:x-large;
+	color: orange;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/CM.css	">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			//输入表单校验JS
+			function checkPasswords() {
+				var psd1 = document.getElementById("password1");
+				var psd2 = document.getElementById("password2");
+				var mind1 = document.getElementById("remind1");
+				var mind2 = document.getElementById("remind2");
+				if (psd1.value != psd2.value) {
+					psd1.style.border = "2px solid #CF2D28";
+					psd2.style.border = "2px solid #CF2D28";
+				} else {
+					psd1.style.borderColor = "white";
+					psd2.style.borderColor = "white";
+				}
+			}
+			//更换头像JS
+			//		照相获取
+			function changeUserLogo1() {
+				var cmr = plus.camera.getCamera();
+				cmr.captureImage(function(path) {
+					plus.gallery.save(path);
+					var markTopLogo = document.getElementById("markTopLogo");
+					markTopLogo.src = path;
+				}, function(e) {
+				}, {
+					filename: "file:///storage/emulated/0/DCIM/Camera/",
+					index: 1
+				});
+			}
+			//		从相册中选取
+			function changeUserLogo2() {
+				// 从相册中选择图片
+				plus.gallery.pick(function(path) {
+					var markTopLogo = document.getElementById("markTopLogo");
+					markTopLogo.src = path;
+					//showImg(path);
+					//createItem(path);
+				}, function(e) {}, {
+					filter: "image"
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">信息录入页面</h1>
+		</header>
+		<div class="mui-content">
+			<div class="loginTop"> 
+				<a href="#picture">
+					<input type="image" form="userMessageForm" id="markTopLogo" class="loginTopLogo" src="img/user-logo.jpg" />
+				</a>
+			</div>
+			<div class="mui-content-padded" style="margin: 5px;">
+
+				<form  id="userMessageForm" class="mui-input-group" action="#">
+
+					<div class="mui-input-row">
+						<label>社区账号</label>
+						<input type="text" class="mui-input-clear" placeholder="13848596331" disabled="true" style="background-color: gainsboro;">
+					</div>
+					<div class="mui-input-row">
+						<label>社区昵称</label>
+						<input type="text" class="mui-input-clear" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$" placeholder="为您的账号设置昵称">
+					</div>
+					<div class="mui-input-row">
+						<label>密码</label>
+						<input type="password" id="password1" required onchange="checkPasswords()" class="mui-input-clear" placeholder="请设置密码">
+						<span id="remind1"></span>
+					</div>
+					<div class="mui-input-row">
+						<label>确认密码</label>
+						<input type="password" id="password2" required onchange="checkPasswords()" class="mui-input-clear" placeholder="请重复上面的密码">
+						<span id="remind2"></span>
+					</div>
+					<div class="mui-input-row">
+						<label>家庭角色</label>
+						<select name="familyRole">
+						  <option value="爷爷">爷爷</option>
+						  <option value="奶奶">奶奶</option>
+                          <option value="爸爸">爸爸</option>
+                          <option value="妈妈">妈妈</option>
+                          <option value="儿子">儿子</option>
+                          <option value="女儿">女儿</option>
+                          <option value="其他">其他</option>
+                        </select>
+					</div>
+					<div class="mui-input-row">
+						<label>小区角色</label>
+						<select name="communityRole">
+                          <option value="上班族">上班族</option>
+                          <option value="退休党">退休党</option>
+                          <option value="创业帮">创业帮</option>
+                          <option value="夕阳红">夕阳红</option>
+                          <option value="学生派">学生派</option>
+                          <option value="其他">其他</option>
+                        </select>
+					</div>
+
+					<textarea id="textarea" rows="2" placeholder="个性签名"></textarea>
+
+					<div class="mui-button-row">
+						<button class="mui-btn mui-btn-primary">保存资料</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="javascript:changeUserLogo1();">拍照</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="javascript:changeUserLogo2();">选取现有的</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/immersed.js"></script>
+
+</html>

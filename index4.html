@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">社区广场</h1>
+		</header>
+
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="img/lunbo/sc4.jpg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="img/lunbo/sc1.jpg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="img/lunbo/sc2.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="img/lunbo/sc3.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="img/lunbo/sc4.jpg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="img/lunbo/sc1.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div id="links">
+			<ul class="mui-table-view" style="margin-top: 15px;">
+				<li class="mui-table-view-cell "><a  class="mui-icon iconfont icon-luntanretie">社区论坛</a></li>
+				<li class="mui-table-view-cell"><a  class="mui-icon iconfont icon-unie60b">社交圈（朋友圈）</a></li>
+				<li class="mui-table-view-cell"><a  class="mui-icon iconfont icon-gongtonglinju">左邻右里（附近的人）</a></li>
+				<li class="mui-table-view-cell"><a  class="mui-icon iconfont icon-gongtonglinju">聊天</a></li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 15px;">
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-jiajiao">社区家教</a></li>
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-bang">社区帮帮帮</a></li>
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-huodong">有朋远来</a></li>
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-huodong">社区活动</a></li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 15px;">
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-ershouwupin">社区二手货</a></li>
+				<li class="mui-table-view-cell"><a href="#" class="mui-icon iconfont icon-jifen">社区支付（积分）</a></li>
+			</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+	var slider = mui("#slider");
+	slider.slider({
+		interval: 2000
+	});
+	var links = {
+		html: ["forum_post.html","circle.html","peopleAround.html","chat.html","#","#","#","#","#","#"]
+	};
+	var subpage_style = {
+				top: '0px',
+				bottom: '0px'
+			};
+	var obj = mui("#links li"); 
+	
+	for (var i = 0; i < obj.length; i++) {
+		obj[i].num = i;
+		obj[i].addEventListener('tap', function(e) {
+			e.preventDefault();
+			plus.webview.open(links.html[this.num],links.html[this.num],subpage_style);
+		}, 'false');
+	}
+      </script>
+	</body>
+
+</html>

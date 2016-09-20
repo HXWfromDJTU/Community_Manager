@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/common.js"></script>
+			
+		<script type="text/javascript" charset="UTF-8">
+	mui.init();
+	// 通过定位模块获取位置信息
+	        var alertMSG="";
+			function geoInf(position) {
+				var str = "";
+				alertMSG="我在"+position.addresses+"可能有危险，若半小时联系不上我，请通知警方！！";
+				str += "您现在的位置是：" + position.addresses + "\n"; //获取地址信息
+				document.getElementById("localGeoMessage").innerHTML = str;
+				
+			}
+
+			function getPos() {
+				plus.geolocation.getCurrentPosition(geoInf, function(e) {
+					document.getElementById("localGeoMessage").style.color = "crimson";
+					document.getElementById("localGeoMessage").innerHTML = "定位失败";
+				});
+			}
+ //	电话求救
+	function call4help(){
+		plus.device.dial("110");
+	}
+	function showMaps(){
+	var ws=plus.webview.currentWebview();
+	var wm=plus.webview.getWebviewById(plus.runtime.appid);
+	 
+	clicked('maps_map.html',false,true);
+}
+//	短信求救
+	function slientSMS(){
+	if ( plus.os.name == "Android" ) {
+		var bts=["发送到12110","发送到10010","发送到10000"];
+		plus.nativeUI.prompt("求救求救！！",function(e){
+			var to=null;
+			switch(e.index){
+				case 0:
+				to=['12110'];
+				break;
+				case 1:
+				to=['12580'];
+				break;
+				case 2:
+				to=['10086'];
+				break;
+				default:
+				return;
+				break;
+			}
+			var msg = plus.messaging.createMessage(plus.messaging.TYPE_SMS);
+			
+			msg.to=to;
+			msg.body=e.value;
+			msg.silent=true;
+			plus.messaging.sendMessage( msg );
+		},"发送短信",alertMSG,bts);
+	} else {
+		plus.nativeUI.alert("短信未发送成功，请尝试其他求救通道");
+	}
+}
+//社交平台分享操作
+	var shares=null,bhref=true;
+var Intent=null,File=null,Uri=null,main=null;
+// H5 plus事件处理
+function plusReady(){
+	getPos()
+	updateSerivces();
+	if(plus.os.name=="Android"){
+		Intent = plus.android.importClass("android.content.Intent");
+		File = plus.android.importClass("java.io.File");
+		Uri = plus.android.importClass("android.net.Uri");
+		main = plus.android.runtimeMainActivity();
+	}
+} 
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+//更新分享服务
+function updateSerivces(){
+	plus.share.getServices( function(s){
+		shares={};
+		for(var i in s){
+			var t=s[i];
+			shares[t.id]=t;
+		}
+	}, function(e){
+		plus.nativeUI.alert( "获取分享服务列表失败："+e.message );
+	} );
+}
+//验证是否已授权
+function shareAction(id,ex) {
+	var s=null;
+	alert( "分享操作：" );
+	if(!id||!(s=shares[id])){
+		plus.nativeUI.alert( "无效的分享服务！" );
+		return;
+	}
+	if ( s.authenticated ) {
+//		plus.nativeUI.alert( "---已授权---" );
+		shareMessage(s,ex);
+	} else {
+		alert( "---未授权---" );
+		s.authorize( function(){
+				shareMessage(s,ex);
+			},function(e){
+			plus.nativeUI.alert( "认证授权失败："+e.code+" - "+e.message );
+		});
+	}
+}
+/** * 发送分享消息 */
+function shareMessage(s,ex){
+	var msg={content:alertMSG,extra:{scene:ex}};
+	if(bhref){
+		msg.href="http://map.baidu.com/";
+		msg.title="求救！！！";
+		msg.content=alertMSG;
+		msg.thumbs=["img/APPlogo.png"];
+		msg.pictures=["img/APPlogo.png"];
+	}
+//	alert(JSON.stringify(msg));
+	s.send( msg, function(){
+		plus.nativeUI.alert( s.description+"\"求救成功！ " );
+	}, function(e){
+		plus.nativeUI.alert( s.description+"\"求救失败: ");
+	} );
+}
+
+</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">安全报警</h1>
+			<a class="mui-icon mui-icon-gear-filled mui-pull-right"></a>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div>
+					<span id="localGeoMessage">
+					定位位置
+				</span>
+				</div>
+				<div id="alarmbtn-box">
+					<span id="alarmbtn" onclick="getPos()" class="mui-btn mui-btn-danger"></span>
+				</div>
+				<div id="otherChoice-box">
+					<span id="mui-btn-array-head" onclick="call4help()" class="mui-btn mui-icon mui-icon-phone-filled mui-btn-array">
+					电话求救
+				</span>
+					<span id="mui-btn-array" onclick="slientSMS();" class="mui-btn mui-icon mui-icon-email-filled mui-btn-array">
+					短信求救
+				</span>
+					<span id="mui-btn-array" onclick="showMaps();" class="mui-btn mui-icon iconfont icon-ditu2 mui-btn-array">
+					显示地图
+				</span>
+					<span id="mui-btn-array" onclick="shareAction('sinaweibo','WXSceneTimeline');"  class="mui-btn mui-icon iconfont icon-xinlangweibo mui-btn-array">
+					微博求救
+				</span>
+					<span id="mui-btn-array" onclick="shareAction('weixin','WXSceneSession');" class="mui-btn mui-icon iconfont icon-weixin mui-btn-array">
+					微信求救
+				</span>
+				</div>
+			</div>
+		</div>
+	</body>
+<script type="text/javascript" src="js/immersed.js"></script>
+
+</html>

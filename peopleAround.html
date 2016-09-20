@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">左邻右里</h1>
+			<a class="mui-icon mui-icon-more mui-pull-right"></a>
+		</header>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-table-view-chevron peopleAround">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="img/userCharacters/character (1).jpg">
+							<div class="mui-media-body">
+								我不是黄蓉
+								<span class="mui-icon iconfont icon-sex0"></span>
+								<p class='mui-ellipsis'>房号：7-306</p>
+							</div>
+							<div class="mui-media-signal">老娘是社区女神哈哈哈</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			var signalText = ["老娘是社区一枝花", "签名档写点什么呢", "龙拉拢啦哈", "寂寞难耐呐哈哈", "", "你说湖北", "山丹丹的那个开花哟！", "你和疏忽与我永诀", "", "", "让我去二中上班", "", "上班好无聊", "", "小区保安", "", "", "社区谈谈心", "", "", "而TV的服务", "去温泉为", "", "", "", "","","","","","","","","","","","","","","","","",];
+			var username = ["楠楠", "佘曲宝", "万福特12", "王企鹅", "李海燕", "秦莞尔6665", "请温柔的", "皮蛋", "啤酒杯1-k", "18K8", "群威群胆", "花旦龙威", "铮铮铁汉噢", "QQWeb", "皮素1988", "安德伍德", "克莱尔", "托尼宝贝AIR", "check-KING", "WQW", "RR奎因RR", "C七王C", "小龙女包包", "库卢河", "挥洒4486", "其味无穷99kiut", "Allen23", "TJ-麦克", "问问", "七王", "Frankie","Mikie","LOngly","甩葱歌0411","大连银","其味无穷","切","天东方网","特poor","前前维持","人人",];
+
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media';
+						li.innerHTML = "<a href='javascript:;'><img class='mui-media-object mui-pull-left' src='img/userCharacters/character (" + (i + 1) + ").jpg'><div class='mui-media-body'>" + username[i] + "<span class='mui-icon iconfont icon-sex" + (Math.round(Math.random())) + "'></span><p class='mui-ellipsis'>房号：" + (Math.round(Math.random() * 10)) + "-" + (Math.round(Math.random() * 10) + Math.round(Math.random() * 10)) + "0" + Math.round(Math.random() * 10) + "</p></div><div class='mui-media-signal'>" + signalText[i] + "</div></a>";
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media';
+						li.innerHTML = "<a href='javascript:;'><img class='mui-media-object mui-pull-left' src='img/userCharacters/character (" + (i + 1) + ").jpg'><div class='mui-media-body'>" + username[i] + "<span class='mui-icon iconfont icon-sex" + (Math.round(Math.random())) + "'></span><p class='mui-ellipsis'>房号：" + (Math.round(Math.random() * 10)) + "-" + (Math.round(Math.random() * 10) + Math.round(Math.random() * 10)) + "0" + Math.round(Math.random() * 10) + "</p></div><div class='mui-media-signal'>" + signalText[i] + "</div></a>";
+						table.appendChild(li);
+					}
+				}, 1000);
+			}
+		</script>
+	</body>
+
+</html>

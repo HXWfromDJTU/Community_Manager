@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/CM.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	function postQuery(){
+      		var post=document.getElementById("post").value;
+      		var postNum=document.getElementById("postNum").value;
+//    		项目未未上线之前无法回到正确的地址
+      		var backURL="map.baidu.com";
+      		window.location.href="http://m.kuaidi100.com/index_all.html?type="+post+"&postid="+postNum+"&callbackurl="+backURL;
+      	}
+    </script>
+</head>
+<body> 
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">快递查询</h1>
+	</header>
+	
+		
+		<div class="mui-content">
+			<div class="mui-content-padded">
+			
+		    <form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>快递公司</label>
+					<input id="post" type="text" class="mui-input-clear mui-input" placeholder="例如：韵达快递">
+				</div>
+				<div class="mui-input-row">
+					<label>运送单号</label>      
+					<input id="postNum" type="text" class="mui-input-clear mui-input" placeholder="1901446047390">
+				</div>
+				<span onclick="postQuery()" class="mui-btn mui-btn-danger mui-btn-radius mui-btn-exclusive">查询</span>
+			</form>
+			
+			</div>
+	    </div>
+</body>
+</html>

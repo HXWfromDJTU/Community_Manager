@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/CM.css" rel="stylesheet" />
+		<link href="css/mui.indexedlist.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<!--用于解析用户名称中文首字母的JS-->
+		<script src="js/chinese.js"></script>
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.mui-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+           <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通讯录</h1>
+			<span onclick="addContactor()" class="mui-btn mui-btn-primary mui-pull-right">新增</span>
+		</header>
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input id="addUsername" type="search" class="mui-input-clear" placeholder="新增或搜索联系人">
+				</div>
+				<div class="mui-indexed-list-bar">
+					<a>A</a>
+					<a>B</a>
+					<a>C</a>
+					<a>D</a>
+					<a>E</a>
+					<a>F</a>
+					<a>G</a>
+					<a>H</a>
+					<a>I</a>
+					<a>J</a>
+					<a>K</a>
+					<a>L</a>
+					<a>M</a>
+					<a>N</a>
+					<a>O</a>
+					<a>P</a>
+					<a>Q</a>
+					<a>R</a>
+					<a>S</a>
+					<a>T</a>
+					<a>U</a>
+					<a>V</a>
+					<a>W</a>
+					<a>X</a>
+					<a>Y</a>
+					<a>Z</a>
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul class="mui-table-view" id="listUL">
+						<li data-group="A" id="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
+						<li data-group="B" id="B" class="mui-table-view-divider mui-indexed-list-group">B</li>
+						<li data-group="C" id="C" class="mui-table-view-divider mui-indexed-list-group">C</li>
+						<li data-group="D" id="D" class="mui-table-view-divider mui-indexed-list-group">D</li>
+						<li data-group="E" id="E" class="mui-table-view-divider mui-indexed-list-group">E</li>
+						<li data-group="F" id="F" class="mui-table-view-divider mui-indexed-list-group">F</li>
+						<li data-group="G" id="G" class="mui-table-view-divider mui-indexed-list-group">G</li>
+						<li data-group="H" id="H" class="mui-table-view-divider mui-indexed-list-group">H</li>
+						<li data-group="I" id="I" class="mui-table-view-divider mui-indexed-list-group">I</li>
+						<li data-group="J" id="J" class="mui-table-view-divider mui-indexed-list-group">J</li>
+						<li data-group="K" id="K" class="mui-table-view-divider mui-indexed-list-group">K</li>
+						<li data-group="L" id="L" class="mui-table-view-divider mui-indexed-list-group">L</li>
+						<li data-group="M" id="M" class="mui-table-view-divider mui-indexed-list-group">M</li>
+						<li data-group="N" id="N" class="mui-table-view-divider mui-indexed-list-group">N</li>
+						<li data-group="O" id="O" class="mui-table-view-divider mui-indexed-list-group">O</li>
+						<li data-group="P" id="P" class="mui-table-view-divider mui-indexed-list-group">P</li>
+						<li data-group="Q" id="Q" class="mui-table-view-divider mui-indexed-list-group">Q</li>
+						<li data-group="R" id="R" class="mui-table-view-divider mui-indexed-list-group">R</li>
+						<li data-group="S" id="S" class="mui-table-view-divider mui-indexed-list-group">S</li>
+						<li data-group="T" id="T" class="mui-table-view-divider mui-indexed-list-group">T</li>
+						<li data-group="U" id="U" class="mui-table-view-divider mui-indexed-list-group">U</li>
+						<li data-group="V" id="V" class="mui-table-view-divider mui-indexed-list-group">V</li>
+						<li data-group="W" id="W" class="mui-table-view-divider mui-indexed-list-group">W</li>
+						<li data-group="X" id="X" class="mui-table-view-divider mui-indexed-list-group">X</li>
+						<li data-group="Y" id="Y" class="mui-table-view-divider mui-indexed-list-group">Y</li>
+						<li data-group="Z" id="Z" class="mui-table-view-divider mui-indexed-list-group">Z</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/mui.indexedlist.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.ready(function() {
+				var header = document.querySelector('header.mui-bar');
+				var list = document.getElementById('list');
+				//calc hieght
+				list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+				//create
+				window.indexedList = new mui.IndexedList(list);
+			});
+			//添加联系人功能
+			var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+			function addContactor() {
+				var str = query() + "";
+				var chineseHead = str.substring(0, 1);
+				var i = 0;
+				for (i = 0; i < 26; i++) {
+					if (chineseHead == alphabet[i]) {
+						chineseHead = alphabet[i + 1];
+						break;
+					}
+				}
+				var listUL = document.getElementById("listUL");
+				var listHead = document.getElementById(chineseHead);
+				var listUser = document.createElement("li");
+				listUser.className = "mui-table-view-cell mui-indexed-list-item";
+				listUser.innerHTML = document.getElementById("addUsername").value;
+				listUL.insertBefore(listUser, listHead);
+				document.getElementById("addUsername").value = "";
+			}
+		</script>
+	</body>
+
+</html>
