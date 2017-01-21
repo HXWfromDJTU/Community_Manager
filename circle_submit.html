@@ -17,10 +17,9 @@
 			function galleryImg() {
 				// 从相册中选择图片
 				plus.gallery.pick(function(path) {
-					
 					addImgBox(path);
 					imgNum += 1;
-					//					限制最多选九张相片
+					//限制最多选九张相片
 					if (imgNum >= 9) {
 						var imgBox = document.getElementById("mui-circleSubmit-imgBox");
 						var addBtn = document.getElementById("addImgBtn");
