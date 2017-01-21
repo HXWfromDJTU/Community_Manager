@@ -20,4 +20,3 @@
 ![image](https://github.com/HXWfromDJTU/Community_Manager/blob/master/snap/snap%20(15).png)
 ![image](https://github.com/HXWfromDJTU/Community_Manager/blob/master/snap/snap%20(16).png)
 ![image](https://github.com/HXWfromDJTU/Community_Manager/blob/master/snap/snap%20(17).png)
-![image](https://github.com/HXWfromDJTU/Community_Manager/blob/master/snap/snap%20(18).png)
